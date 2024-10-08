@@ -8,9 +8,6 @@ environment:
 
 # Add regular dependencies here.
 dependencies:
-  dotenv: ^4.2.0
-  teledart: ^0.6.1
-  # path: ^1.8.0
 
 dev_dependencies:
   lints: ^4.0.0
