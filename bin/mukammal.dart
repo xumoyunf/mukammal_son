@@ -9,14 +9,8 @@ List<int> messageIds = [];
 Future<void> main(List<String> arguments) async {
   var file = await fileio.File('env.json').readAsString();
   var env = jsonDecode(file);
-  final username = (await Telegram(fileio.Platform.environment['token']!).getMe()).username;
-  final teledart = TeleDart(fileio.Platform.environment['token']!, Event(username!));
-  var webhookUrl =
-      'https://vercel.com/alis-projects-bf517144/api/webhook';
-  await teledart.setWebhook(
-    webhookUrl,
-    ipAddress: '0.0.0.0',
-  );
+  final username = (await Telegram(env['token']!).getMe()).username;
+  final teledart = TeleDart(env['token']!, Event(username!));
   teledart.start();
 
   teledart.onCommand('start').listen((msg) async {
